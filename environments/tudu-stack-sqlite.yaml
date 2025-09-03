@@ -1,0 +1,82 @@
+name: Tudu Stack (SQLite)
+ref: tudu-stack-sqlite
+description: Running the complete series of services to support the TuDu product.
+version: 1.0.0
+tools:
+  - ref: go_air
+  - ref: go
+  - ref: nodejs
+  - ref: pnpm
+apps:
+  - name: Tudu Ts React Frontend
+    ref: tudu-ts-react-frontend
+    repository_url: https://github.com/joy-dx/tudu-ts-react-frontend
+    config:
+      build:
+        - name: install dependencies
+          action_ref: core.os_exec
+          configuration:
+            command:
+              - '{{ .SVar `.env.bin` }}/pnpm'
+              - i
+            working_dir: '{{ .SVar `.apps.tudu-ts-react-frontend.root` }}'
+          ignore_errors: false
+      dev:
+        - name: run frontend development
+          action_ref: core.os_exec
+          configuration:
+            background: true
+            command:
+              - '{{ .SVar `.env.bin` }}/pnpm'
+              - dev
+            working_dir: '{{ .SVar `.apps.tudu-ts-react-frontend.root` }}'
+          ignore_errors: false
+  - name: Tudu Go Gin Api
+    ref: tudu-go-gin-api
+    repository_url: https://github.com/joy-dx/tudu-go-gin-api
+    config:
+      environment:
+        - "TUDU_DB_DSN={{ .SVar `.apps.tudu-go-gin-api.root` }}/database.sqlite3"
+      build:
+        - name: standard go build
+          action_ref: core.os_exec
+          configuration:
+            command:
+              - '{{ .SVar `.env.bin` }}/go'
+              - build
+              - -o
+              - '{{ .SVar `.env.bin` }}/tudu-api'
+              - main.go
+            working_dir: '{{ .SVar `.apps.tudu-go-gin-api.root` }}'
+          ignore_errors: false
+      dev:
+        - name: run migrations
+          action_ref: core.os_exec
+          configuration:
+            command:
+              - '{{ .SVar `.env.bin` }}/go'
+              - run
+              - main.go
+              - db
+              - migrate
+            working_dir: '{{ .SVar `.apps.tudu-go-gin-api.root` }}'
+          ignore_errors: false
+        - name: setup test data
+          action_ref: core.os_exec
+          configuration:
+            command:
+              - '{{ .SVar `.env.bin` }}/go'
+              - run
+              - main.go
+              - db
+              - fixtures
+            working_dir: '{{ .SVar `.apps.tudu-go-gin-api.root` }}'
+          ignore_errors: false
+        - name: run backend development mode
+          action_ref: core.os_exec
+          configuration:
+            background: true
+            command:
+              - '{{ .SVar `.env.bin` }}/air'
+            working_dir: '{{ .SVar `.apps.tudu-go-gin-api.root` }}'
+          ignore_errors: false

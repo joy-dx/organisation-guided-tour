@@ -1,41 +1,36 @@
 ---
-menus: main
 title: Home
-weight: 1
 ---
 
-## Thanks for choosing JoyDX
+## Getting Started
 
-Welcome to our Guided Tour Organisation, designed to support and guide new users. This site is your go-to resource for understanding and using JoyDX; within the next few minutes you'll have:
+Welcome to our Guided Tour Organisation, designed to familiarize new users with [JoyDX](https://joydx.com).
+
+Follow the links below and within the next few minutes you'll have:
 
 * Interacted with the auto-managed documentation...you're doing it now!
-* Launched a live environment, made some changes, and performed pre-launch checks
-* (optional) Add PostgreSQL support to an application
+* As a Developer, [Launched and made changes to a live environment](/launch-starter-environment)
+* As an Analyst, [run a quality check on application changes](/analyze-app-changes)
+* As an Admin, [configured your system](/the-system-environment) with a series of great development tools
+* As a Team-member, [started customising your own easy-to-manage organisation](/managing-an-organisation) making collaboration simple
 
-We're excited to have you on board! Start exploring the resources available and don't hesitate to seek help when needed. Your journey to success begins here.
+## More Than Just a Guide
 
-### Getting Started
+This guide is more than just a set of instructions, it's a living example of how organisations work. Rather than being written separately, this site is an artefact generated from a JoyDX organisation. In the side navigation, you should notice "Technical Information" with the following:
 
-Begin your journey with these simple steps:
+* **Environments** provides a detailed breakdown of operating instructions for any application stacks defined within the organisation
+* **Roles** provides a brief description of the tools used in performing various duties.
+* **Tools** provides a full listing of external tools (along with description, links to docs, etc.)
 
-* Explore Environments: Familiarize yourself with the technical environments you'll work in.
-* Discover Roles / Tools: Find the right tools for your specific role.
-* Consult Documentation: Access guides and resources to streamline your onboarding process.
-* Engage with Community: Connect with peers through communication channels for support and team integration.
+The more you use JoyDX, the more relevant and up-to-date content can automatically created. It only took writing a few pages in markdown to completely create this documentation site as you see it now. Further customisation of the wiki (beyond this guide) is a short task:
 
-#### Technical Environments
+* [Hugo](https://gohugo.io/) is used as the site framework with the site code located in your shared folder for full control. As JoyDX develops, more themes and customisation options will be made conveniently available
+* Content pages are simple markdown files. Later on, look at the wiki section of your organisation to see how easy it is to make your own pages
+* The HTML is purposefully simple with presentation based on Tailwind, and CSS variables heavily used. There is a theme selector along the top of the page to demonstrate some simple themes
 
-Understand the various environments where you'll operate, with definitions and explanations to help you navigate your work effectively.
+## Further Resources
 
-#### Role Tooling Index
-
-Find the tools tailored to your role, enhancing efficiency and performance in your tasks.
-
-#### Guidance Documentation
-
-Access comprehensive onboarding guides and procedural documentation to support your learning and workflow.
-
-#### Community Support
-
-Connect with our community for collaboration and assistance. Forums and communication channels are available to address your questions and share insights.
-
+* [Online Documentation](https://joydx.com/docs/getting-started)
+* [JoyDX Github](https://github.com/orgs/joy-dx/repositories)
+* [Discord](https://discord.gg/pw2cKv3sw7)
+* [Issues](https://github.com/joy-dx/joydx-releases/issues)
