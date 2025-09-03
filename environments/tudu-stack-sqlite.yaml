@@ -36,7 +36,7 @@ apps:
     repository_url: https://github.com/joy-dx/tudu-go-gin-backend
     config:
       environment:
-        - "TUDU_DB_DSN={{ .SVar `.apps.tudu-go-gin-backend.root` }}/database.sqlite3"
+        - "TUDU_DB_DSN=file:{{ .SVar `.apps.tudu-go-gin-backend.root` }}/database.db?cache=shared&mode=rwc"
       build:
         - name: standard go build
           action_ref: core.os_exec
