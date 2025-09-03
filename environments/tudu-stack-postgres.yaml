@@ -41,9 +41,9 @@ apps:
               - dev
             working_dir: '{{ .SVar `.apps.tudu-ts-react-frontend.root` }}'
           ignore_errors: false
-  - name: Tudu Go Gin Api
-    ref: tudu-go-gin-api
-    repository_url: https://github.com/joy-dx/tudu-go-gin-api
+  - name: Tudu Go Gin Backend
+    ref: tudu-go-gin-backend
+    repository_url: https://github.com/joy-dx/tudu-go-gin-backend
     config:
       environment:
         - TODO_POSTGRES_DSN=postgres://{{ .SVar `postgres_user` }}:{{ .SVar `postgres_password` }}@localhost:{{ .SVar `postgres_port` }}/{{ .SVar `postgres_schema` }}?sslmode=disable
@@ -55,9 +55,9 @@ apps:
               - '{{ .SVar `.env.bin` }}/go'
               - build
               - -o
-              - '{{ .SVar `.env.bin` }}/tudu-api'
+              - '{{ .SVar `.env.bin` }}/tudu-backend'
               - main.go
-            working_dir: '{{ .SVar `.apps.tudu-go-gin-api.root` }}'
+            working_dir: '{{ .SVar `.apps.tudu-go-gin-backend.root` }}'
           ignore_errors: false
       dev:
         - name: run migrations
@@ -69,7 +69,7 @@ apps:
               - main.go
               - db
               - migrate
-            working_dir: '{{ .SVar `.apps.tudu-go-gin-api.root` }}'
+            working_dir: '{{ .SVar `.apps.tudu-go-gin-backend.root` }}'
           ignore_errors: false
         - name: setup test data
           action_ref: core.os_exec
@@ -80,7 +80,7 @@ apps:
               - main.go
               - db
               - fixtures
-            working_dir: '{{ .SVar `.apps.tudu-go-gin-api.root` }}'
+            working_dir: '{{ .SVar `.apps.tudu-go-gin-backend.root` }}'
           ignore_errors: false
         - name: run backend development mode
           action_ref: core.os_exec
@@ -88,7 +88,7 @@ apps:
             background: true
             command:
               - '{{ .SVar `.env.bin` }}/air'
-            working_dir: '{{ .SVar `.apps.tudu-go-gin-api.root` }}'
+            working_dir: '{{ .SVar `.apps.tudu-go-gin-backend.root` }}'
           ignore_errors: false
 vars:
   postgres_password: development

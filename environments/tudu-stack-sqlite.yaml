@@ -31,12 +31,12 @@ apps:
               - dev
             working_dir: '{{ .SVar `.apps.tudu-ts-react-frontend.root` }}'
           ignore_errors: false
-  - name: Tudu Go Gin Api
-    ref: tudu-go-gin-api
-    repository_url: https://github.com/joy-dx/tudu-go-gin-api
+  - name: Tudu Go Gin Backend
+    ref: tudu-go-gin-backend
+    repository_url: https://github.com/joy-dx/tudu-go-gin-backend
     config:
       environment:
-        - "TUDU_DB_DSN={{ .SVar `.apps.tudu-go-gin-api.root` }}/database.sqlite3"
+        - "TUDU_DB_DSN={{ .SVar `.apps.tudu-go-gin-backend.root` }}/database.sqlite3"
       build:
         - name: standard go build
           action_ref: core.os_exec
@@ -45,9 +45,9 @@ apps:
               - '{{ .SVar `.env.bin` }}/go'
               - build
               - -o
-              - '{{ .SVar `.env.bin` }}/tudu-api'
+              - '{{ .SVar `.env.bin` }}/tudu-backend'
               - main.go
-            working_dir: '{{ .SVar `.apps.tudu-go-gin-api.root` }}'
+            working_dir: '{{ .SVar `.apps.tudu-go-gin-backend.root` }}'
           ignore_errors: false
       dev:
         - name: run migrations
@@ -59,7 +59,7 @@ apps:
               - main.go
               - db
               - migrate
-            working_dir: '{{ .SVar `.apps.tudu-go-gin-api.root` }}'
+            working_dir: '{{ .SVar `.apps.tudu-go-gin-backend.root` }}'
           ignore_errors: false
         - name: setup test data
           action_ref: core.os_exec
@@ -70,7 +70,7 @@ apps:
               - main.go
               - db
               - fixtures
-            working_dir: '{{ .SVar `.apps.tudu-go-gin-api.root` }}'
+            working_dir: '{{ .SVar `.apps.tudu-go-gin-backend.root` }}'
           ignore_errors: false
         - name: run backend development mode
           action_ref: core.os_exec
@@ -78,5 +78,5 @@ apps:
             background: true
             command:
               - '{{ .SVar `.env.bin` }}/air'
-            working_dir: '{{ .SVar `.apps.tudu-go-gin-api.root` }}'
+            working_dir: '{{ .SVar `.apps.tudu-go-gin-backend.root` }}'
           ignore_errors: false
