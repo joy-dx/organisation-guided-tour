@@ -1,4 +1,4 @@
-name: Tudu Stack (Postgres
+name: Tudu Stack (Postgres)
 ref: tudu-stack-postgres
 description: Running the complete series of services to support the TuDu product.
 version: 1.0.0
