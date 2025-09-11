@@ -1,0 +1,10 @@
+name: Web Developer
+ref: web-developer
+description: Tools to work with React on the frontend and Go on the backend
+version: 1.0.0
+maintainers: []
+tools:
+  - ref: pnpm
+  - ref: go
+  - ref: nodejs
+  - ref: go_air
