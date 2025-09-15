@@ -1,12 +1,12 @@
 {
-  "name": "Guided Tour",
-  "description": "An Introduction to JoyDX using JoyDX",
+  "name": "JoyDX Guided Tour",
+  "description": "An Introduction to JoyDX through a JoyDX organisation",
   "icon": "/demo/img/hello_world_cover.png",
   "version": "0.0.1",
   "maintainers": [
     {
       "name": "Simon",
-      "email": "opensource@simonball.me"
+      "email": "simon@joydx.com"
     }
   ]
 }

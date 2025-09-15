@@ -9,7 +9,7 @@ Welcome to our Guided Tour Organisation, designed to familiarize new users with 
 Follow the links below and within the next few minutes you'll have:
 
 * Interacted with the auto-managed documentation...you're doing it now!
-* As a Developer, [Launched and made changes to a live environment](/launch-starter-environment)
+* As a Developer, [Launched and made changes to a live environment](/launch-environments)
 * As an Analyst, [run a quality check on application changes](/analyze-app-changes)
 * As an Admin, [configured your system](/the-system-environment) with a series of great development tools
 * As a Team-member, [started customising your own easy-to-manage organisation](/managing-an-organisation) making collaboration simple

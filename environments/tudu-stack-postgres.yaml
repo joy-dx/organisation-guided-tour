@@ -30,7 +30,6 @@ apps:
               - '{{ .SVar `.env.bin` }}/pnpm'
               - i
             working_dir: '{{ .SVar `.apps.tudu-ts-react-frontend.root` }}'
-          ignore_errors: false
       dev:
         - name: run frontend development
           action_ref: core.os_exec
@@ -40,7 +39,6 @@ apps:
               - '{{ .SVar `.env.bin` }}/pnpm'
               - dev
             working_dir: '{{ .SVar `.apps.tudu-ts-react-frontend.root` }}'
-          ignore_errors: false
   - name: Tudu Go Gin Backend
     ref: tudu-go-gin-backend
     repository_url: https://github.com/joy-dx/tudu-go-gin-backend
@@ -58,7 +56,6 @@ apps:
               - '{{ .SVar `.env.bin` }}/tudu-backend'
               - main.go
             working_dir: '{{ .SVar `.apps.tudu-go-gin-backend.root` }}'
-          ignore_errors: false
       dev:
         - name: run migrations
           action_ref: core.os_exec
@@ -70,7 +67,6 @@ apps:
               - db
               - migrate
             working_dir: '{{ .SVar `.apps.tudu-go-gin-backend.root` }}'
-          ignore_errors: false
         - name: setup test data
           action_ref: core.os_exec
           configuration:
@@ -81,7 +77,6 @@ apps:
               - db
               - fixtures
             working_dir: '{{ .SVar `.apps.tudu-go-gin-backend.root` }}'
-          ignore_errors: false
         - name: run backend development mode
           action_ref: core.os_exec
           configuration:
@@ -89,7 +84,6 @@ apps:
             command:
               - '{{ .SVar `.env.bin` }}/air'
             working_dir: '{{ .SVar `.apps.tudu-go-gin-backend.root` }}'
-          ignore_errors: false
 vars:
   postgres_password: development
   postgres_port: "5432"
