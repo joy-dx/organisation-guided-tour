@@ -3,10 +3,10 @@ ref: tudu-stack-sqlite
 description: Running the complete series of services to support the TuDu product.
 version: 1.0.0
 tools:
-  - ref: go_air
-  - ref: go
-  - ref: nodejs
-  - ref: pnpm
+  - name: go_air
+  - name: go
+  - name: nodejs
+  - name: pnpm
 apps:
   - name: Tudu Ts React Frontend
     ref: tudu-ts-react-frontend
