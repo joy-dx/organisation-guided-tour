@@ -2,7 +2,7 @@
   "name": "JoyDX Guided Tour",
   "description": "An Introduction to JoyDX through a JoyDX organisation",
   "icon": "/demo/img/hello_world_cover.png",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "maintainers": [
     {
       "name": "Simon",
