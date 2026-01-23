@@ -17,7 +17,7 @@ apps:
           action_ref: core.os_exec
           configuration:
             command:
-              - '{{ .SVar `.env.bin` }}/pnpm'
+              - 'pnpm'
               - i
             working_dir: '{{ .SVar `.apps.tudu-ts-react-frontend.root` }}'
           ignore_errors: false
@@ -27,7 +27,7 @@ apps:
           configuration:
             background: true
             command:
-              - '{{ .SVar `.env.bin` }}/pnpm'
+              - 'pnpm'
               - dev
             working_dir: '{{ .SVar `.apps.tudu-ts-react-frontend.root` }}'
           ignore_errors: false
@@ -42,10 +42,10 @@ apps:
           action_ref: core.os_exec
           configuration:
             command:
-              - '{{ .SVar `.env.bin` }}/go'
+              - 'go'
               - build
               - -o
-              - '{{ .SVar `.env.bin` }}/tudu-backend'
+              - 'tudu-backend'
               - main.go
             working_dir: '{{ .SVar `.apps.tudu-go-gin-backend.root` }}'
       dev:
@@ -53,7 +53,7 @@ apps:
           action_ref: core.os_exec
           configuration:
             command:
-              - '{{ .SVar `.env.bin` }}/go'
+              - 'go'
               - run
               - main.go
               - db
@@ -63,7 +63,7 @@ apps:
           action_ref: core.os_exec
           configuration:
             command:
-              - '{{ .SVar `.env.bin` }}/go'
+              - 'go'
               - run
               - main.go
               - db
@@ -75,5 +75,5 @@ apps:
           configuration:
             background: true
             command:
-              - '{{ .SVar `.env.bin` }}/air'
+              - 'air'
             working_dir: '{{ .SVar `.apps.tudu-go-gin-backend.root` }}'
